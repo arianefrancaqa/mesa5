@@ -1,3 +1,6 @@
+import ListComponent from "./components/ListComponent";
+import "./styles.css";
+
 const produtos = [
   {
     nome: "Macbook Air 13 Chip M1 256gb",
@@ -23,10 +26,26 @@ const produtos = [
 
 function App() {
   return (
-    <div>
-      <h1>Produtos</h1>
-
+    <div className="component">
+      <h1 className="title">Produtos</h1>
       <ul>
+        {
+          produtos.map((item, index) => {
+            return (
+              <ListComponent
+                key={index}
+                nome={item.nome}
+                imagem={item.image}
+                preco={item.preco}
+
+              />
+            )
+          })
+        }
+      </ul>
+
+
+      {/* <ul>
         <li>
           <h2>{produtos[0].nome}</h2>
           <img src={produtos[0].image} />
@@ -44,7 +63,7 @@ function App() {
           <img src={produtos[2].image} />
           <h3>{produtos[2].preco}</h3>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
